@@ -25,18 +25,42 @@
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
     <script type="text/babel">
+        
+        const { useState } = React;
 
         const animals = ['Gatto', 'Cane', 'Coniglio'];
 
         const Animali = () => {
-            // console.log(animals)
+
+            const animalsChoices = ["Cane", "Gatto", "Pappagallo", "Cavallo", "Panda"];
+
+            const [animals, setAnimals] = useState ([]);
+            // console.log(animals);
+
+            const randomIndex = Math.floor(Math.random() * animalsChoices.length);
+            // console.log(randomIndex);
+
+            const randomAnimal = animalsChoices[randomIndex];
+            // console.log(randomAnimal);
+
+                const addRandomAnimal = (() => {
+                    const randomIndex = Math.floor(Math.random() * animalsChoices.length);
+
+                    const randomAnimal = animalsChoices[randomIndex];
+
+                    setAnimals([...animals, randomAnimal]);
+                });
+
+
             return(
                 <div>
+                    <button onClick={addRandomAnimal}>Aggiungi Animale</button>
+
                     <details>
                         <summary>Animali</summary>
                         <ul>
-                            {animals.map((animal) => 
-                                <li key={animal}>{animal}</li>
+                            {animals.map((animal, index) => 
+                                <li key={index}>{animal}</li>
                             )}
                         </ul>
                     </details>
