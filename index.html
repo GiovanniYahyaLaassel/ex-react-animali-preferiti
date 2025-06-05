@@ -28,27 +28,18 @@
         
         const { useState } = React;
 
-        const animals = ['Gatto', 'Cane', 'Coniglio'];
-
         const Animali = () => {
 
             const animalsChoices = ["Cane", "Gatto", "Pappagallo", "Cavallo", "Panda"];
 
             const [animals, setAnimals] = useState ([]);
-            // console.log(animals);
-
-            const randomIndex = Math.floor(Math.random() * animalsChoices.length);
-            // console.log(randomIndex);
-
-            const randomAnimal = animalsChoices[randomIndex];
-            // console.log(randomAnimal);
 
                 const addRandomAnimal = (() => {
                     const randomIndex = Math.floor(Math.random() * animalsChoices.length);
 
                     const randomAnimal = animalsChoices[randomIndex];
 
-                    setAnimals([...animals, randomAnimal]);
+                    setAnimals([...animalsChoices, randomAnimal]);
                 });
 
 
